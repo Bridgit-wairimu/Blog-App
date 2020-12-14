@@ -1,0 +1,5 @@
+Hello {{user.username}},
+ Welcome to Blog App.
+You have joined a great blogging platform where you would be able to recieve blogs updades regularly
+welcome to the family 
+enjoy!!

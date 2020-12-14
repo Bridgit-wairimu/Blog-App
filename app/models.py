@@ -67,3 +67,16 @@ class Comment(UserMixin,db.Model):
     @login_manager.user_loader
     def load_user(user_id):
         return User.query.get(int(user_id))
+
+class Subscriber(db.Model):
+    __tablename__='subscribers'
+
+    id=db.Column(db.Integer,primary_key=True)
+    email = db.Column(db.String(255),unique=True,index=True)
+
+    def save_subscriber(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def __repr__(self):
+        return f'Subscriber {self.email}'

@@ -1,9 +1,10 @@
 from flask import render_template,request,redirect,url_for,abort
 from flask_login import login_required
-from ..models import Blog,Comment,User
+from ..models import Blog,Comment,User,Subscriber
 from .forms import BlogForm,CommentForm,UpdateProfile
 from .. import db
 from . import main
+from ..email import mail_message
 
 
 @main.route('/')
@@ -62,3 +63,11 @@ def comment(blog_id):
     return render_template('comment.html', form =form, blog = blog,all_comments=all_comments)
 
 
+@main.route('/subscribe',methods = ['POST','GET'])
+def subscribe():
+    email = request.form.get('subscriber')
+    new_subscriber = Subscriber(email = email)
+    new_subscriber.save_subscriber()
+    mail_message("Subscribed to D-Blog","email/welcome_subscriber",new_subscriber.email,new_subscriber=new_subscriber)
+    flash('Sucessfuly subscribed')
+    return redirect(url_for('main.index'))
