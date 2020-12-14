@@ -7,7 +7,7 @@
 
 
 {% block content %}
-  <h2 class="text-center" ><u>Blogs ,Quotes</u></h2>
+  <h2 class="text-center" style="color: green;"><u>Blogs ,Quotes</u></h2>
 
   <body >
   <div class="container">  
@@ -15,7 +15,7 @@
       <div class="card-groups">
         <div class="card border-info mb-3 col-md-4" style="max-width: 35rem;">          
           <div class="card-body">
-            <h5 class="card-title"><u>Blogs</u></h5>
+            <h5 class="card-title" style="color: green;"><u>Blogs</u></h5>
             
 
 
@@ -23,20 +23,19 @@
                 <aside class="dates" style="color: white;">26/02/2003</aside>
             </a>
 
-            Pitch fork
+            <p style="color: white;">Pitch fork</p>
             <p class="card-text" style="color: white">Pitch fork is one of the most popular music resources on the web. This online music magazine, which has come to be known as the most trusted voice in music,
                 covers a variety of genres from indie rock, metal, and experimental music to electronic, pop, and hip-hop. </p></br>
                
+                <p> <a class="btn btn-sm btn-info" href="" > Comment</a></p>
+
+            <p style="color: white;">Hypebot </p> 
+            <p class="card-text" style="color: white">s a great source of information on music, music technology, and the music business. This blog provides a lot of interesting news and insight on new technologies that musicians can use to publish their music and improve their reach,
+                so Hypebot is definitely for people a bit more interested in the industry, behind-the-scenes.</p></br>
                 <a href="">
                     <aside class="dates" style="color: white;">08/12/2017</aside>
                 </a>
 
-                <p> <a class="btn btn-sm btn-info" href="" > Comment</a></p>
-
-            Hypebot  
-            <p class="card-text" style="color: white">s a great source of information on music, music technology, and the music business. This blog provides a lot of interesting news and insight on new technologies that musicians can use to publish their music and improve their reach,
-                so Hypebot is definitely for people a bit more interested in the industry, behind-the-scenes.</p></br>
-                
                 <p> <a class="btn btn-sm btn-info" href="" > Comment</a></p>
 
           </div>
@@ -44,7 +43,7 @@
         
         <div class="card border-info mb-3 col-md-4" style="max-width: 35rem;">          
           <div class="card-body">
-            <h5 class="card-title" ><u>Quotes </u></h5>
+            <h5 class="card-title" style="color: green;"><u>Quotes </u></h5>
             <a href="">
                 <aside class="dates" style="color: white;">31/07/2005</aside>
             </a>
@@ -105,10 +104,10 @@
             <form class="form-inline ml-2" action="{{url_for('main.subscribe')}}" method="POST">
                 <div class="md-form form-group">
                     <label class="white-color" style="color: white;">Email Address...</label>
-                    <input type="email" style="color: white;" class="form-control " name ="subscriber" required>
+                    <input type="email" style="color: black;" class="form-control " name ="subscriber" required>
                 </div>
                 <div class="md-form form-group">
-                    <button class="btn btn-sm btn-outline-info" id="subs" style="color: white;">Subscribe</button>
+                    <button class="btn btn-sm btn-outline-info" id="subs" style="color: black;">Subscribe</button>
                 </div>
             </form>
         </div>
