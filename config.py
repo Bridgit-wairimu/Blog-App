@@ -1,6 +1,7 @@
 import os
 
 class Config:
+    UPLOADED_PHOTOS_DEST ='app/static/photos'
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:bridgit@localhost/blog'
     SECRET_KEY='23456789'
