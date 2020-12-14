@@ -1,0 +1,99 @@
+{% extends 'base.html'%}
+
+
+{% block styles%} {{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+<link rel="stylesheet" href="{{url_for('static',filename='css/navbar.css')}}"> 
+{% endblock %}
+
+
+{% block content %}
+  <h2 class="text-center" ><u>Blogs ,Quotes</u></h2>
+
+  <body >
+  <div class="container">  
+    <div class="d-flex justify-content-center row">
+      <div class="card-groups">
+        <div class="card border-info mb-3 col-md-4" style="max-width: 35rem;">          
+          <div class="card-body">
+            <h5 class="card-title"><u>Blogs</u></h5>
+            
+
+
+            <a href="">
+                <aside class="dates" style="color: black;">26/02/2003</aside>
+            </a>
+
+            Pitch fork
+            <p class="card-text">Pitch fork is one of the most popular music resources on the web. This online music magazine, which has come to be known as the most trusted voice in music,
+                covers a variety of genres from indie rock, metal, and experimental music to electronic, pop, and hip-hop. </p></br>
+               
+                <a href="">
+                    <aside class="dates" style="color: black;">08/12/2017</aside>
+                </a>
+
+                <p> <a class="btn btn-sm btn-info" href="" > Comment</a></p>
+
+            Hypebot  
+            <p class="card-text">s a great source of information on music, music technology, and the music business. This blog provides a lot of interesting news and insight on new technologies that musicians can use to publish their music and improve their reach,
+                so Hypebot is definitely for people a bit more interested in the industry, behind-the-scenes.</p></br>
+                
+                <p> <a class="btn btn-sm btn-info" href="" > Comment</a></p>
+
+          </div>
+        </div>
+        
+        <div class="card border-info mb-3 col-md-4" style="max-width: 35rem;">          
+          <div class="card-body">
+            <h5 class="card-title" ><u>Quotes </u></h5>
+            <a href="">
+                <aside class="dates" style="color: black;">31/07/2005</aside>
+            </a>
+            <p class="card-text">“If Java had true garbage collection, most programs would delete themselves upon execution.”
+                — Robert Sewell
+                </p></br>
+
+
+                <a href="">
+                    <aside class="dates" style="color: black;">21/01/2019</aside>
+                </a>
+            <p class="card-text">“QA Engineer walks into a bar. Orders a beer. Orders 0 beers. Orders 999999999 beers. Orders a lizard. Orders -1 beers. Orders a sfdeljknesv.”
+                — Bill Sempf
+                </p></br>
+
+                <a href="">
+                    <aside class="dates" style="color: black;">08/12/2017</aside>
+                </a>
+
+            <p class="card-text">“XML is like violence – if it doesn’t solve your problems, you are not using enough of it.”
+
+                — Bridgit Roberts
+                </p><b/r>
+
+                <a href="">
+                    <aside class="dates" style="color: black;">08/05/2017</aside>
+                </a>
+
+            <p class="card-text">“Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live.”
+                — Rick Osborne
+                </p></b>
+                <a href="">
+                    <aside class="dates" style="color: black;">09/10/2001</aside>
+                </a>
+
+            <p class="card-text">“There are only two kinds of programming languages: those people always bitch about and those nobody uses.”
+                — Bjarne Stroustrup
+            </p></br>
+
+                <a href="">
+                    <aside class="dates" style="color: black;">08/12/2014</aside>
+                </a>    
+            <p class="card-text">“Some people, when confronted with a problem, think “I know, I’ll use regular expressions.” Now they have two problems.”
+
+                — Jamie Zawinski
+            </p></br>
+              
+            <p> <a class="btn btn-sm btn-info" href="" > Comment</a></p>
+        </div>
+</body>
+  {% endblock%}
