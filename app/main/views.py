@@ -2,7 +2,7 @@ from flask import render_template,request,redirect,url_for,abort,flash
 from flask_login import login_required,current_user
 from ..models import Blog,Comment,User,Subscriber
 from .forms import BlogForm,CommentForm,UpdateProfile
-from .. import db
+from .. import db,photos
 from . import main
 from ..email import mail_message
 
@@ -75,3 +75,13 @@ def subscribe():
 
 
 
+main.route('/user/<uname>/update/pic',methods= ['POST'])
+@login_required
+def update_pic(uname):
+    user = User.query.filter_by(username = uname).first()
+    if 'photo' in request.files:
+        filename = photos.save(request.files['photo'])
+        path = f'photos/{filename}'
+        user.profile_pic_path = path
+        db.session.commit()
+    return redirect(url_for('main.profile',uname=uname))
