@@ -1,5 +1,5 @@
-from flask import render_template,request,redirect,url_for,abort
-from flask_login import login_required
+from flask import render_template,request,redirect,url_for,abort,flash
+from flask_login import login_required,current_user
 from ..models import Blog,Comment,User,Subscriber
 from .forms import BlogForm,CommentForm,UpdateProfile
 from .. import db
@@ -64,10 +64,11 @@ def comment(blog_id):
 
 
 @main.route('/subscribe',methods = ['POST','GET'])
+@login_required
 def subscribe():
     email = request.form.get('subscriber')
     new_subscriber = Subscriber(email = email)
     new_subscriber.save_subscriber()
-    mail_message("Subscribed to D-Blog","email/welcome_subscriber",new_subscriber.email,new_subscriber=new_subscriber)
+    mail_message("Subscribed to Blog","email/welcome_subscriber",new_subscriber.email,new_subscriber=new_subscriber)
     flash('Sucessfuly subscribed')
     return redirect(url_for('main.index'))
