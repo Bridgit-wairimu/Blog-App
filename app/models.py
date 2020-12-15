@@ -1,13 +1,12 @@
 from . import db
 from datetime import datetime
 from werkzeug.security import generate_password_hash,check_password_hash
-from flask_login import UserMixin
+from flask_login import current_user,UserMixin
 from . import login_manager
 
 
 class User (UserMixin,db.Model):
     __tablename__ = 'users'
-    pass_secure = db.Column(db.String(255))
     id = db.Column(db.Integer,primary_key = True)
     username = db.Column(db.String(255),unique = True,nullable = False)
     email = db.Column(db.String(255), unique = True,nullable = False)
@@ -16,7 +15,6 @@ class User (UserMixin,db.Model):
     hashed_password = db.Column(db.String(255),nullable = False)
     blog = db.relationship('Blog', backref='user', lazy='dynamic')
     comment = db.relationship('Comment', backref='user', lazy='dynamic')
-    pass_secure  = db.Column(db.String(255))
 
     @property
     def password(self):
@@ -29,6 +27,17 @@ class User (UserMixin,db.Model):
 
     def verify_password(self,password):
         return check_password_hash(self.pass_secure,password)
+
+    def save_u(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
+    
+    def __repr__(self):
+        return f'User {self.username}'
 
     
 class Blog(UserMixin,db.Model):
@@ -57,6 +66,15 @@ class Comment(UserMixin,db.Model):
         db.session.add(self)
         db.session.commit()
 
+
+    def delete(self):
+        db.session.remove(self)
+        db.session.commit()
+
+    def get_comment(id):
+        comment = Comment.query.all(id=id)
+        return comment
+    
     @classmethod
     def get_comments(cls,pitch_id):
         comments = Comment.query.filter_by(blog_id=blog_id).all()
