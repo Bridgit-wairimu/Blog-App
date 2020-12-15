@@ -47,22 +47,16 @@ def update_pic(uname):
         db.session.commit()
     return redirect(url_for('main.profile',uname=uname))
 
-@main.route('/comment/<int:blog_id>', methods = ['POST','GET'])
+@main.route('/comment/<blog_id>', methods = ['Post','GET'])
 @login_required
 def comment(blog_id):
-    form = CommentForm()
     blog = Blog.query.get(blog_id)
-    all_comments = Comment.query.filter_by(blog_id = blog_id).all()
-    if form.validate_on_submit():
-        comment = form.comment.data 
-        blog_id = blog_id
-        user_id = current_user._get_current_object().id
-        new_comment = Comment(comment = comment,user_id = user_id,blog_id = blog_id)
-        new_comment.save_c()
-        return redirect(url_for('.comment', blog_id = blog_id))
-    return render_template('comment.html', form =form, blog = blog,all_comments=all_comments)
+    comment =request.form.get('newcomment')
+    new_comment = Comment(comment = comment, user_id = current_user._get_current_object().id, blog_id=blog_id)
+    new_comment.save()
+    return redirect(url_for('main.blog',id = blog.id))
 
-
+    
 @main.route('/subscribe',methods = ['POST','GET'])
 @login_required
 def subscribe():
@@ -96,3 +90,19 @@ def new_blog():
         return redirect(url_for('main.index'))  
 
         return render_template('create_blog.html', title='New Blog', form = form)
+
+
+
+@main.route('/blog/<blog_id>/update', methods = ['GET','POST'])
+@login_required
+def updateblog(blog_id):
+    blog = Blog.query.get(blog_id)
+    if blog.user != current_user:
+        abort(403)
+    form = CreateBlog()
+    if form.validate_on_submit():
+        blog.title = form.title.data
+        blog.content = form.content.data
+        db.session.commit()
+        flash("You have updated your Blog!")
+        return redirect(url_for('main.blog',id = blog.id)) 
