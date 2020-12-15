@@ -85,3 +85,14 @@ def update_pic(uname):
         user.profile_pic_path = path
         db.session.commit()
     return redirect(url_for('main.profile',uname=uname))
+
+
+main.route("/blog/new",methods= ['GET','POST'])
+@login_required
+def new_blog():
+    form = BlogForm()
+    if form.validate_on_submit():
+        flash('Your blog has been created', 'success')
+        return redirect(url_for('main.index'))  
+
+        return render_template('create_blog.html', title='New Blog', form = form)

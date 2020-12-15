@@ -1,7 +1,7 @@
 from flask import render_template,redirect,url_for,flash
 from . import auth
 from ..models import User
-from .forms import RegistrationForm,LoginForm
+from .forms import RegistrationForm,LoginForm,BlogForm
 from .. import db
 from flask_login import login_user,logout_user,login_required
 from ..email import mail_message
@@ -36,8 +36,8 @@ def register():
         title = "New Account"
     return render_template('auth/register.html', registration_form = registration_form)
 
-    
-@auth.route('/logout')
+
+
 @login_required
 def logout():
     logout_user()

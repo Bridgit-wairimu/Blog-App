@@ -7,6 +7,32 @@
 
 
 {% block content %}
+
+<div class="container-fluid">
+    <div class="col-md-3"></div>
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-success">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    {{ message }}
+    </div>
+    {% endfor %}
+    <form class="form-inline ml-2" action="{{url_for('main.subscribe')}}" method="POST">
+        <div class="md-form form-group">
+            <label class="white-color" style="color: white;">Name</label>
+            <input type="name" style="color: black;" class="form-control " name ="subscriber" required>
+            <label class="white-color" style="color: white;">Email Address...</label>
+            <input type="email" style="color: black;" class="form-control " name ="subscriber" required>
+        </div>
+
+        <div class="md-form form-group">
+            <button class="btn btn-sm btn-outline-info" id="subs" style="color: black; margin: 10px;">Subscribe</button>
+        </div>
+    </form>
+</div>
+</div>
+</div>
+</div>
+
   <h2 class="text-center" style="color: green;"><u>Blogs ,Quotes</u></h2>
 
   <body >
@@ -48,7 +74,7 @@
                 <aside class="dates" style="color: white;">31/07/2005</aside>
             </a>
             <p class="card-text" style="color: white">“If Java had true garbage collection, most programs would delete themselves upon execution.”
-                — Robert Sewell
+               <p style="color: plum;  font-family: 'Architects Daughter', cursive;">— Robert Sewell</p> 
                 </p></br>
 
 
@@ -56,7 +82,7 @@
                     <aside class="dates" style="color: white;">21/01/2019</aside>
                 </a>
             <p class="card-text" style="color: white;">“QA Engineer walks into a bar. Orders a beer. Orders 0 beers. Orders 999999999 beers. Orders a lizard. Orders -1 beers. Orders a sfdeljknesv.”
-                — Bill Sempf
+               <p style="color: plum;  font-family: 'Architects Daughter', cursive;"> — Bill Sempf</p>
                 </p></br>
 
                 <a href="">
@@ -65,7 +91,7 @@
 
             <p class="card-text" style="color: white;">“XML is like violence – if it doesn’t solve your problems, you are not using enough of it.”
 
-                — Bridgit Roberts
+                <p style="color: plum;  font-family: 'Architects Daughter', cursive;"> — Bridgit Roberts</p>
                 </p><b/r>
 
                 <a href="">
@@ -73,14 +99,14 @@
                 </a>
 
             <p class="card-text" style="color: white;">“Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live.”
-                — Rick Osborne
+                <p style="color: plum;  font-family: 'Architects Daughter', cursive;"> — Rick Osborne</p>
                 </p></b>
                 <a href="">
                     <aside class="dates" style="color: white;">09/10/2001</aside>
                 </a>
 
             <p class="card-text" style="color: white;">“There are only two kinds of programming languages: those people always bitch about and those nobody uses.”
-                — Bjarne Stroustrup
+                <p style="color: plum;  font-family: 'Architects Daughter', cursive;">— Bjarne Stroustrup</p>
             </p></br>
 
                 <a href="">
@@ -88,34 +114,13 @@
                 </a>    
             <p class="card-text" style="color: white;">“Some people, when confronted with a problem, think “I know, I’ll use regular expressions.” Now they have two problems.”
 
-                — Jamie Zawinski
+                <p style="color: plum;  font-family: 'Architects Daughter', cursive;"> — Jamie Zawinski</p>
             </p></br>
               
             <p> <a class="btn btn-sm btn-info" href="" > Comment</a></p>
         </div>
 
-        <div class="container-fluid">
-            <div class="col-md-3"></div>
-            {% for message in get_flashed_messages() %}
-            <div class="alert alert-success">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            {{ message }}
-            </div>
-            {% endfor %}
-            <form class="form-inline ml-2" action="{{url_for('main.subscribe')}}" method="POST">
-                <div class="md-form form-group">
-                    <label class="white-color" style="color: white;">Email Address...</label>
-                    <input type="email" style="color: black;" class="form-control " name ="subscriber" required>
-                </div>
-
-                <div class="md-form form-group">
-                    <button class="btn btn-sm btn-outline-info" id="subs" style="color: black; margin: 10px;">Subscribe</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-</div>
+        
 
     </body>
   {% endblock%}
