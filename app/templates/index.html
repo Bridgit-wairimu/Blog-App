@@ -8,6 +8,12 @@
 
 {% block content %}
 
+<div class="container landing">
+    <div class="row ">
+            {% if current_user.is_authenticated %}
+            <div class="col-md-3 "><a class="btn btn-sm btn-info " id="ref" href="{{url_for('main.new_blog')}}">Post</a></div>
+            {% endif %}
+
 <div class="container-fluid">
     <div class="col-md-3"></div>
     {% for message in get_flashed_messages() %}
@@ -34,18 +40,16 @@
 </div>
 
  <hr>
-  <h2 class="text-center" style="color: green;"><u>Blogs ,Quotes</u></h2>
-
-  <body >
+  <h2 class="text-center" style="color: blueviolet; font-size: xx-large;font-family: 'Yesteryear', cursive, serif;"><u>Blogs ,Quotes</u></h2>
+  
+    <body>
   <div class="container">  
     <div class="d-flex justify-content-center row">
       <div class="card-groups">
         <div class="card border-info mb-3 col-md-4" style="max-width: 35rem;">          
           <div class="card-body">
-            <h5 class="card-title" style="color: green;"><u>Blogs</u></h5>
+            <h5 class="card-title" style="color: #dda0dd;"><u>Blogs </u></h5>
             
-
-
             <a href="">
                 <aside class="dates" style="color: white;">26/02/2003</aside>
             </a>
@@ -70,7 +74,7 @@
         
         <div class="card border-info mb-3 col-md-4" style="max-width: 35rem;">          
           <div class="card-body">
-            <h5 class="card-title" style="color: green;"><u>Quotes </u></h5>
+            <h5 class="card-title" style="color:plum;"><u>Quotes </u></h5>
             <a href="">
                 <aside class="dates" style="color: white;">31/07/2005</aside>
             </a>

@@ -56,7 +56,7 @@ def comment(blog_id):
     new_comment.save()
     return redirect(url_for('main.blog',id = blog.id))
 
-    
+
 @main.route('/subscribe',methods = ['POST','GET'])
 @login_required
 def subscribe():
@@ -92,17 +92,20 @@ def new_blog():
         return render_template('create_blog.html', title='New Blog', form = form)
 
 
-
 @main.route('/blog/<blog_id>/update', methods = ['GET','POST'])
 @login_required
-def updateblog(blog_id):
+def update_blog(blog_id):
     blog = Blog.query.get(blog_id)
     if blog.user != current_user:
         abort(403)
     form = CreateBlog()
     if form.validate_on_submit():
-        blog.title = form.title.data
-        blog.content = form.content.data
+        form.title= form.title.data
+        form.content= form.content.data
         db.session.commit()
-        flash("You have updated your Blog!")
-        return redirect(url_for('main.blog',id = blog.id)) 
+        flash("Your post has benn updated!")
+        return redirect(url_for('blog', blog_id=blog_id)) 
+    elif request.method == 'GET':
+        form.title.data = blog.title
+        form.content.data = blog.content
+    return render_template('create_blog.html', form = form)
