@@ -37,14 +37,6 @@
   
     <body>
         
-        <div class="container ">
-            <div class="row ">
-                    {% if current_user.is_authenticated %}
-                    <div class="col-md-3 ">
-                    <button><a class="btn btn-sm btn-info " id="ref" href="{{url_for('main.new_blog')}}">Post</a></button>
-                    </div>
-                    {% endif %}
-
   <div class="container">  
     <div class="d-flex justify-content-center row">
       <div class="card-groups">
@@ -68,12 +60,18 @@
                 <a href="">
                     <aside class="dates" style="color: white;">08/12/2017</aside>
                 </a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            </div>
 
-                    <button class="btn btn-sm btn-outline-info">Comment</button>
-                        
-        
-        <div class="card border-info mb-3 col-md-4" style="max-width: 35rem;">          
-          <div class="card-body">
+
+            <div class="container">  
+            <div class="d-flex justify-content-center row">
+            <div class="card-groups">
+            <div class="card border-info mb-3 col-md-4" style="max-width: 35rem;">         
+                <div class="card-body">   
             <h5 class="card-title" style="color:plum;"><u>Quotes </u></h5>
             <a href="">
                 <aside class="dates" style="color: white;">31/07/2005</aside>
@@ -123,8 +121,10 @@
             </p></br>
               
         </div>
-
-        
-
+        </div>
+        </div>
+        </div>
+        </div>
+    
     </body>
   {% endblock%}
