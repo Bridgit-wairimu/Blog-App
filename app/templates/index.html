@@ -8,11 +8,6 @@
 
 {% block content %}
 
-<div class="container landing">
-    <div class="row ">
-            {% if current_user.is_authenticated %}
-            <div class="col-md-3 "><a class="btn btn-sm btn-info " id="ref" href="{{url_for('main.new_blog')}}">Post</a></div>
-            {% endif %}
 
 <div class="container-fluid">
     <div class="col-md-3"></div>
@@ -43,6 +38,15 @@
   <h2 class="text-center" style="color: blueviolet; font-size: xx-large;font-family: 'Yesteryear', cursive, serif;"><u>Blogs ,Quotes</u></h2>
   
     <body>
+        
+        <div class="container ">
+            <div class="row ">
+                    {% if current_user.is_authenticated %}
+                    <div class="col-md-3 ">
+                    <button><a class="btn btn-sm btn-info " id="ref" href="{{url_for('main.new_blog')}}">Post</a></button>
+                    </div>
+                    {% endif %}
+
   <div class="container">  
     <div class="d-flex justify-content-center row">
       <div class="card-groups">

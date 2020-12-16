@@ -18,6 +18,9 @@ class ProdConfig(Config):
 
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:bridgit@localhost/blog'
 
+class TestConfig(Config):
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:bridgit@localhost/blog_test'
+
 class DevConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:bridgit@localhost/blog'
     DEBUG = True
@@ -26,5 +29,6 @@ class DevConfig(Config):
 
 config_options = {
     'development':DevConfig,
-    'production':ProdConfig
+    'production':ProdConfig,
+    'test':TestConfig
     }

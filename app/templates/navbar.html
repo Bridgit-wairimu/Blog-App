@@ -25,6 +25,8 @@
   <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
   {% else %}
   <li><a href="{{url_for('auth.login')}}">Sign in</a></li>
+  <li><a  href="{{url_for('main.update_blog',blog_id=blog_id)}}">Post</a></li>
+
   {%endif%}
 </ul>
 
