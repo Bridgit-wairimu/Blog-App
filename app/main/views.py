@@ -5,7 +5,7 @@ from .forms import BlogForm,CommentForm,UpdateProfile
 from .. import db,photos
 from . import main
 from ..email import mail_message
-
+import markdown2
 
 @main.route('/')
 def index():
@@ -66,18 +66,6 @@ def subscribe():
     mail_message("Subscribed to Blog App","email/welcome_subscriber",new_subscriber.email,new_subscriber=new_subscriber)
     flash('Sucessfuly subscribed')
     return redirect(url_for('main.index'))
-
-
-
-main.route("/blog/new",methods= ['GET','POST'])
-@login_required
-def new_blog():
-    form = BlogForm()
-    if form.validate_on_submit():
-        flash('Your blog has been created', 'success')
-        return redirect(url_for('main.index'))  
-
-        return render_template('create_blog.html', title='New Blog', form = form)
 
 
 @main.route('/blog/<blog_id>/update', methods = ['GET','POST'])

@@ -13,7 +13,12 @@ class Config:
     MAIL_USE_TLS = True
     MAIL_USERNAME = "kirikabridgit@gmail.com"
     MAIL_PASSWORD = "9089%300"
-    
+
+
+# simple mde  configurations
+    SIMPLEMDE_JS_IIFE = True
+    SIMPLEMDE_USE_CDN = True
+
 class ProdConfig(Config):
 
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:bridgit@localhost/blog'
