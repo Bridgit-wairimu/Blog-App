@@ -20,8 +20,9 @@ class Config:
     SIMPLEMDE_USE_CDN = True
 
 class ProdConfig(Config):
+    
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:bridgit@localhost/blog'
 
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:bridgit@5432/blog'
 
 class TestConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:bridgit@5432/blog_test'
